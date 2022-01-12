@@ -52,7 +52,6 @@
 
 </br>
 <!-- Leave comment form   -->
-
 <!--{% block content %}-->
 <!--    <h3 style="margin-left:30px;">New comment</h3>-->
 <!--    <form method="POST" class="post-form" style="margin-left:30px;">{% csrf_token %}-->
@@ -81,6 +80,7 @@
 
 <!--  Comments  -->
 <h2 style="margin-left:30px;">Comments to post: {{ post.comments.count }}</h2>
+<a class="btn btn-default" href="{% url 'comment' post_id=post.pk %}">Add comment</a>
 {% for comment in post.comments.all %}
 <div class="card" style="width: 60rem;">
   <div class="card-body">
