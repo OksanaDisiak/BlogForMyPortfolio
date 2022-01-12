@@ -11,8 +11,8 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left:30px;">
-      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <a class="navbar-brand" href="{% url 'home' %}" style="margin-left:30px;">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,28 +45,41 @@
       <br/>
       <p> {{post.text}} </p>
       <br/>
-        <p>Created at: {{post.created_at}}</p>
-        <p>Updated at: {{post.updated_at}}</p>
+        <p class="mb-2 text-muted">Created at: {{post.created_at}}</p>
+        <p class="mb-2 text-muted">Updated at: {{post.updated_at}}</p>
       <br/>
 </div>
 
+</br>
 <!-- Leave comment form   -->
+
+<!--{% block content %}-->
+<!--    <h3 style="margin-left:30px;">New comment</h3>-->
+<!--    <form method="POST" class="post-form" style="margin-left:30px;">{% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit" class="save btn btn-default">Send</button>-->
+<!--    </form>-->
+<!--{% endblock %}-->
+
 <!--<form>-->
 <!--  <div class="form-group">-->
-<!--    <label for="exampleFormControlInput1">Enter your name and comment:</label>-->
+<!--    <label for="exampleFormControlInput1">Leave your comment:</label>-->
 <!--    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your name">-->
 <!--  </div>-->
 <!--  </br>-->
 <!--  <div class="form-group">-->
-<!--&lt;!&ndash;    <label for="exampleFormControlTextarea1">Your comment: </label>&ndash;&gt;-->
 <!--    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Your comment...</textarea>-->
 <!--  </div>-->
+<!--  </br>-->
+<!--  <div class="form-group">-->
+<!--    <a href="#" class="btn btn-primary">Leave comment</a>-->
+<!--  </div>-->
+
 <!--</form>-->
 <!--<br/>-->
 <!--<br/>-->
 
 <!--  Comments  -->
-
 <h2 style="margin-left:30px;">Comments to post: {{ post.comments.count }}</h2>
 {% for comment in post.comments.all %}
 <div class="card" style="width: 60rem;">
@@ -78,12 +91,18 @@
 </div>
 {% endfor %}
 </br>
-<p>No comments here yet :(</p>
 </br>
-</br>
-
 
 </main>
+
+<footer class="bg-secondary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3">
+    © 2022 Copyright:
+    <a class="text-dark" href="">Have a good time!</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
